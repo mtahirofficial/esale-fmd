@@ -15,16 +15,3 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 export default firebase
-
-
-
-// export default firebase.initializeApp({
-//   apiKey: "AIzaSyDj6ZbPFWIQlVimq37FmO_mI6-GiovSQZs",
-//   authDomain: "esale-fmd.firebaseapp.com",
-//   databaseURL: "https://esale-fmd.firebaseio.com",
-//   projectId: "esale-fmd",
-//   storageBucket: "esale-fmd.appspot.com",
-//   messagingSenderId: "505056774229",
-//   appId: "1:505056774229:web:bc19d4ca12cc0eaf11ecdc",
-//   measurementId: "G-JGVBC2BZNT"
-// });
