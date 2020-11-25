@@ -1,7 +1,7 @@
 import firebase from '../../config/firebase/firebase'
 import actionTypes from '../constants/Constants'
 
-export const facebook_login = () => {
+export const facebook_login = (path) => {
     return(dispatch) => {
         var provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -9,7 +9,13 @@ export const facebook_login = () => {
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
-            console.log("chal raha hai...", user, token)
+            // console.log("chal raha hai...", path)
+            // window.location = '/'
+            
+            dispatch({
+                type: actionTypes.userLogin,
+                payload: {user: user, token: token}
+            })
           }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -20,9 +26,17 @@ export const facebook_login = () => {
             var credential = error.credential;
             console.log("Error Code is " + errorCode + ", error email is " + email + ", error credential is " + credential + " and error message is " + errorMessage)
           });
-        dispatch({
-            type: actionTypes.userLogin,
-            payload: "payload"
-        })
     }
+}
+
+export const logOutUser = () => {
+  firebase.auth().signOut().then( () => {
+    window.location = '/';
+    // firebase.database().ref('/user/' + props.uid + '/isLogged').set(false)
+    // firebase.database().ref('/user/' + props.uid).once('value', function (data) {
+        // console.log(data.val().isLogged)
+    // })
+}).catch(function (error) {
+    alert(error)
+});
 }
