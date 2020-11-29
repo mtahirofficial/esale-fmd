@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import { facebook_login } from "../store/actions/index";
+import { facebook_login, email_login } from "../store/actions/index";
 import Slider from "./Slider";
 
 import CustomButton from "./CustomButton";
@@ -119,7 +119,7 @@ const Account = (props) => {
 const mapDispatchToProps = (dispatch) => ({
   // changeStateToReducer: (currentUser) => {
   // dispatch(userLogin(currentUser))
-  // email_login: (mail, password, buttonLabel) => dispatch(email_login(mail, password, buttonLabel)),
+  email_login: (mail, password, buttonLabel) => dispatch(email_login(mail, password, buttonLabel)),
   facebook_login: () => dispatch(facebook_login())
 
   // }
