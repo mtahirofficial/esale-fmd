@@ -6,7 +6,7 @@ const Header = (props) => {
   return (
     <div style={{ backgroundColor: "#F7F8F9" }} className="">
       <Container className="themed-container">
-        <MyNav {...props} />
+        <MyNav />
       </Container>
     </div>
   );
