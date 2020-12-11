@@ -26,8 +26,6 @@ import {
   faSlidersH,
 } from "@fortawesome/free-solid-svg-icons";
 import CustomLink from "./Link";
-import "firebase/auth";
-import { FirebaseAuthConsumer } from "@react-firebase/auth";
 
 const MyNav = (props) => {
   const [collapsed, setCollapsed] = useState(true);
@@ -38,97 +36,87 @@ const MyNav = (props) => {
 
   return (
     <div>
-      <FirebaseAuthConsumer>
-        {({ isSignedIn, user, providerId }) => {
-          return (
-            <Navbar color="faded" light expand="md">
-              <Logo height="96px" width="96px" to="/" />
-              <NavbarToggler onClick={toggleNavbar} className="mr-2" />
-              <Collapse isOpen={!collapsed} navbar>
-                <Nav navbar>
-                  <NavItem>
-                    <Search />
-                  </NavItem>
+      
+          <Navbar color="faded" light expand="md">
+            <Logo height="96px" width="96px" to="/" />
+            <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+            <Collapse isOpen={!collapsed} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <Search />
+                </NavItem>
 
-                  {isSignedIn ? (
-                    <ButtonDropdown
-                      style={{ fontSize: "30px" }}
-                      nav
-                      className="m-2"
-                      isOpen={dropdownOpen}
-                      toggle={toggle}
-                    >
-                      <DropdownToggle caret nav color="info">
-                        {user.displayName}
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem>
-                          <div>
-                            <p
-                              style={{ color: "#5C7A7D", marginBottom: "0px" }}
-                            >
-                              Hellow,
-                            </p>
-                            <h5>{user.displayName}</h5>
-                            <p
-                              style={{
-                                textDecoration: "underline",
-                                fontSize: "12px",
-                              }}
-                            >
-                              View and edit profile
-                            </p>
-                          </div>
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>
-                          <FontAwesomeIcon icon={faPlus} />{" "}
-                          <CustomLink
-                            to="/post"
-                            text="Sell"
-                            linkStyle={{ textDecoration: "none" }}
-                          />{" "}
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>
-                          <FontAwesomeIcon icon={faAd} /> My Ads
-                        </DropdownItem>
-                        <DropdownItem>
-                          <FontAwesomeIcon icon={faComment} /> Chats
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>
-                          <FontAwesomeIcon icon={faQuestionCircle} /> help
-                        </DropdownItem>
-                        <DropdownItem>
-                          <FontAwesomeIcon icon={faSlidersH} /> Settings
-                        </DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem onClick={props.logOUtUser}>
-                          <FontAwesomeIcon icon={faSignOutAlt} /> Logut
-                        </DropdownItem>
-                      </DropdownMenu>
-                    </ButtonDropdown>
-                  ) : (
-                    <NavItem>
-                      <Account
-                        buttonLabel="Login"
-                        color="secondary"
-                        icon={faSignInAlt}
-                      />
-                      <Account
-                        buttonLabel="Signup"
-                        color="info"
-                        icon={faSignOutAlt}
-                      />
-                    </NavItem>
-                  )}
-                </Nav>
-              </Collapse>
-            </Navbar>
-          );
-        }}
-      </FirebaseAuthConsumer>
+                <ButtonDropdown
+                  style={{ fontSize: "30px" }}
+                  nav
+                  className="m-2"
+                  isOpen={dropdownOpen}
+                  toggle={toggle}
+                >
+                  <DropdownToggle caret nav color="info">
+                    Username
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem>
+                      <div>
+                        <p style={{ color: "#5C7A7D", marginBottom: "0px" }}>
+                          Hellow,
+                        </p>
+                        <h5>Username</h5>
+                        <p
+                          style={{
+                            textDecoration: "underline",
+                            fontSize: "12px",
+                          }}
+                        >
+                          View and edit profile
+                        </p>
+                      </div>
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <FontAwesomeIcon icon={faPlus} />{" "}
+                      <CustomLink
+                        to="/post"
+                        text="Sell"
+                        linkStyle={{ textDecoration: "none" }}
+                      />{" "}
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <FontAwesomeIcon icon={faAd} /> My Ads
+                    </DropdownItem>
+                    <DropdownItem>
+                      <FontAwesomeIcon icon={faComment} /> Chats
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <FontAwesomeIcon icon={faQuestionCircle} /> help
+                    </DropdownItem>
+                    <DropdownItem>
+                      <FontAwesomeIcon icon={faSlidersH} /> Settings
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem onClick={props.logOUtUser}>
+                      <FontAwesomeIcon icon={faSignOutAlt} /> Logut
+                    </DropdownItem>
+                  </DropdownMenu>
+                </ButtonDropdown>
+                <NavItem>
+                  <Account
+                    buttonLabel="Login"
+                    color="secondary"
+                    icon={faSignInAlt}
+                  />
+                  <Account
+                    buttonLabel="Signup"
+                    color="info"
+                    icon={faSignOutAlt}
+                  />
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
     </div>
   );
 };
