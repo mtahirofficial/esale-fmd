@@ -1,13 +1,13 @@
-.class1:hover{
+.class1:hover {
   color: black;
 }
 
-.social:hover{
+.social:hover {
   color: #138496 !important;
 }
 
 .emailInput,
-.passwordInput{
+.passwordInput {
   width: 310px;
   height: 40px;
   padding: 5px;
@@ -17,11 +17,51 @@
 }
 
 .emailInput:focus,
-.passwordInput:focus{
+.passwordInput:focus {
   outline-color: #138496;
   border-color: #138496;
 }
 
-.container{
+.container {
   max-width: 1400px !important;
+}
+
+li.categoryItem {
+  cursor: pointer;
+  color: #138496;
+}
+
+li.categoryItem:hover {
+  background-color: lightgrey;
+}
+
+.postCategories,
+.postDetails {
+  width: 80%;
+  margin: 0px auto;
+  border: 1px solid lightgrey;
+}
+
+.chooseCategory {
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+span.change {
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 15px;
+  cursor: pointer;
+  border-bottom: 3px solid #138496;
+}
+
+span.change:hover {
+  border-bottom: 3px solid #E9ECEF;
+}
+
+h4.h4Heading {
+  text-transform: uppercase;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: 600;
 }
