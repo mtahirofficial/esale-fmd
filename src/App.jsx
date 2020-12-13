@@ -1,3 +1,4 @@
+import React from 'react'
 import "./App.css";
 import Router from "./config/router/Router";
 import { library } from "@fortawesome/fontawesome-svg-core";
