@@ -1,0 +1,8 @@
+@font-face {
+    font-family: logoFont;
+    src: url('../Fonts/alqalam\ AlQalam\ Jaan-e-Ishtiaq.ttf');
+}
+
+.logoText {
+    font-family: logoFont;
+}
